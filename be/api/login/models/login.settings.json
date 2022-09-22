@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "logins",
   "info": {
-    "name": "login"
+    "name": "register",
+    "description": ""
   },
   "options": {
     "increments": true,
