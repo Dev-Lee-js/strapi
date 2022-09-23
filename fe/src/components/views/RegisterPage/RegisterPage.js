@@ -49,9 +49,9 @@ function RegisterPage() {
         return alert('비밀번호와 비밀번호 확인은 같아야 합니다.')
       }
       else {
-        Axios.post('https://1337-devleejs-strapi-lg9aejq4v0y.ws-us67.gitpod.io/auth/local', {
+        Axios.post('https://1337-devleejs-strapi-lg9aejq4v0y.ws-us67.gitpod.io/auth/local/register', {
           email : Email,
-          name : Name,
+          username : Name,
           password : Password 
         })
         .then(function (response) {
