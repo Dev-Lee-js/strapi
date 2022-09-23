@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/logins",
-      "handler": "login.find",
+      "path": "/boilerplates",
+      "handler": "boilerplate.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/logins/count",
-      "handler": "login.count",
+      "path": "/boilerplates/count",
+      "handler": "boilerplate.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/logins/:id",
-      "handler": "login.findOne",
+      "path": "/boilerplates/:id",
+      "handler": "boilerplate.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/logins",
-      "handler": "login.create",
+      "path": "/boilerplates",
+      "handler": "boilerplate.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/logins/:id",
-      "handler": "login.update",
+      "path": "/boilerplates/:id",
+      "handler": "boilerplate.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/logins/:id",
-      "handler": "login.delete",
+      "path": "/boilerplates/:id",
+      "handler": "boilerplate.delete",
       "config": {
         "policies": []
       }

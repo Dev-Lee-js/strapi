@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "logins",
+  "collectionName": "boilerplates",
   "info": {
-    "name": "register",
+    "name": "boilerplate",
     "description": ""
   },
   "options": {
@@ -12,14 +12,16 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "email": {
-      "type": "email"
-    },
     "password": {
       "type": "password"
     },
     "name": {
-      "type": "text"
+      "type": "string"
+    },
+    "email": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "user"
     }
   }
 }

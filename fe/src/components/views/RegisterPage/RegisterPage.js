@@ -49,13 +49,14 @@ function RegisterPage() {
         return alert('비밀번호와 비밀번호 확인은 같아야 합니다.')
       }
       else {
-        Axios.post('https://1337-devleejs-strapi-lg9aejq4v0y.ws-us67.gitpod.io/logins', {
+        Axios.post('https://1337-devleejs-strapi-lg9aejq4v0y.ws-us67.gitpod.io/auth/local', {
           email : Email,
           name : Name,
           password : Password 
         })
         .then(function (response) {
           console.log(response);
+          console.log(response.data.jwt);
         })
         .catch(function (error) {
           console.log(error);

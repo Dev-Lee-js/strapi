@@ -1,5 +1,5 @@
 {
-  "name": "my",
+  "name": "be",
   "private": true,
   "version": "0.1.0",
   "description": "A Strapi application",
@@ -21,7 +21,6 @@
     "strapi-connector-mongoose": "^3.6.10",
     "strapi-plugin-content-manager": "3.6.8",
     "strapi-plugin-content-type-builder": "3.6.8",
-    "strapi-plugin-documentation": "3.6.8",
     "strapi-plugin-email": "3.6.8",
     "strapi-plugin-graphql": "3.6.8",
     "strapi-plugin-i18n": "3.6.8",
@@ -33,7 +32,7 @@
     "name": "A Strapi developer"
   },
   "strapi": {
-    "uuid": "89a4affa-f45e-4303-a216-f6b71bba2b58",
+    "uuid": "bf350640-d951-4658-8872-7f78c4e00447",
     "template": "https://github.com/strapi/strapi-template-corporate"
   },
   "engines": {
