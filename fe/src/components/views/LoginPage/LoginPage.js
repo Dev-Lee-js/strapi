@@ -4,6 +4,8 @@ import Form from 'react-bootstrap/Form';
 import styled from 'styled-components';
 import Axios from 'axios'
 import { useNavigate } from "react-router-dom"
+//import { useDispatch } from 'react-redux';
+//import { loginUser } from '../../../_actions/user_action';
 
 export const Box = styled.div`
 position: absolute;
@@ -15,6 +17,7 @@ transform: translate(-50%, -50%);
 
 
 function LoginPage() {
+  //const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
@@ -35,6 +38,7 @@ function LoginPage() {
 
   const onSubmitHandler = (e) => {
       e.preventDefault();
+  
       
       if(Email === "" || Password === ""){
         alert("필수정보를 입력해 주세요.")
@@ -53,6 +57,7 @@ function LoginPage() {
         })
         .catch(function (error) {
           console.log(error);
+          alert("로그인 실패")
         });     
       } 
   }

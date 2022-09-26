@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import styled from 'styled-components';
-import Axios from 'axios'
+import {useDispatch} from "react-redux"
+import { register } from '../../../boilerplateSlice';
 
 export const Box = styled.div`
 position: absolute;
@@ -13,6 +14,8 @@ transform: translate(-50%, -50%);
 `
 
 function RegisterPage() {
+
+  const dispatch = useDispatch(register(2))
 
   const [Email, setEmail] = useState("")
   const [Name, setName] = useState("")
@@ -41,6 +44,8 @@ function RegisterPage() {
 
   const onSubmitHandler = (e) => {
       e.preventDefault();
+
+         
       
       if(Email === "" || Name === "" || Password === ""){
         alert("필수정보를 입력해 주세요.")
@@ -49,19 +54,13 @@ function RegisterPage() {
         return alert('비밀번호와 비밀번호 확인은 같아야 합니다.')
       }
       else {
-        Axios.post('https://1337-devleejs-strapi-lg9aejq4v0y.ws-us67.gitpod.io/auth/local/register', {
-          email : Email,
-          username : Name,
-          password : Password 
-        })
-        .then(function (response) {
-          console.log(response);
-          console.log(response.data.jwt);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });     
+        dispatch(register({
+          email:Email,
+          username:Name,
+          password:Password
+        }))       
       } 
+     
   }
 
 
