@@ -4,8 +4,6 @@ import Form from 'react-bootstrap/Form';
 import styled from 'styled-components';
 import Axios from 'axios'
 import { useNavigate } from "react-router-dom"
-//import { useDispatch } from 'react-redux';
-//import { loginUser } from '../../../_actions/user_action';
 
 export const Box = styled.div`
 position: absolute;
@@ -16,8 +14,7 @@ transform: translate(-50%, -50%);
 `
 
 
-function LoginPage() {
-  //const dispatch = useDispatch();
+function LoginPage() {  
 
   const navigate = useNavigate();
 

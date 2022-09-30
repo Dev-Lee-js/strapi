@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import styled from 'styled-components';
 import {useDispatch} from "react-redux"
-import { register } from '../../../boilerplateSlice';
+import { boilerplate } from '../../../boilerplateSlice';
 
 export const Box = styled.div`
 position: absolute;
@@ -15,7 +15,8 @@ transform: translate(-50%, -50%);
 
 function RegisterPage() {
 
-  const dispatch = useDispatch(register(2))
+  
+  const dispatch = useDispatch()
 
   const [Email, setEmail] = useState("")
   const [Name, setName] = useState("")
@@ -47,20 +48,15 @@ function RegisterPage() {
 
          
       
-      if(Email === "" || Name === "" || Password === ""){
-        alert("필수정보를 입력해 주세요.")
-      }
-      else if (Password !== ConfirmPassword) {
-        return alert('비밀번호와 비밀번호 확인은 같아야 합니다.')
-      }
-      else {
-        dispatch(register({
-          email:Email,
-          username:Name,
-          password:Password
-        }))       
-      } 
-     
+      // if(Email === "" || Name === "" || Password === ""){
+      //   alert("필수정보를 입력해 주세요.")
+      // }
+      // else if (Password !== ConfirmPassword) {
+      //   return alert('비밀번호와 비밀번호 확인은 같아야 합니다.')
+      // }
+      // else {        
+        dispatch(boilerplate())
+      //}
   }
 
 
