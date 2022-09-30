@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import styled from 'styled-components';
-import Axios from 'axios'
+import axios from 'axios'
 import { useNavigate } from "react-router-dom"
+import { useMutation } from "react-query";
 
 export const Box = styled.div`
 position: absolute;
@@ -19,17 +20,21 @@ function LoginPage() {
   const navigate = useNavigate();
 
 
+  const mutation = useMutation(
+    'login',
+    (body) => axios.post('https://1337-devleejs-strapi-lg9aejq4v0y.ws-us67.gitpod.io/auth/local',body),
+    {      
+      onError: (error, variables, context) => {
+        alert("로그인 실패")
+      },
+      onSuccess: (data, variables, context) => {
+        navigate("/");
+      }      
+    }
+  )
+
   const [Email, setEmail] = useState("")  
   const [Password, setPassword] = useState("")  
-
-
-  const onEmailHandler = (e) => {
-    setEmail(e.currentTarget.value)
-  }
-  const onPasswordHandler = (e) => {
-    setPassword(e.currentTarget.value)
-  }
-
 
 
 
@@ -39,24 +44,9 @@ function LoginPage() {
       
       if(Email === "" || Password === ""){
         alert("필수정보를 입력해 주세요.")
-      }      
-      else {
-        Axios.post('https://1337-devleejs-strapi-lg9aejq4v0y.ws-us67.gitpod.io/auth/local', {
-          identifier : Email,          
-          password : Password 
-        })
-        .then(response => {
-          if (response.status === 200) {
-              navigate("/")
-          } else {
-              alert('Error˝')
-          }
-        })
-        .catch(function (error) {
-          console.log(error);
-          alert("로그인 실패")
-        });     
-      } 
+      } else {
+      mutation.mutate({identifier:Email, password:Password});
+      }
   }
 
 
@@ -65,11 +55,11 @@ function LoginPage() {
             <Form>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control value={Email} onChange={onEmailHandler} type="email" placeholder="Enter email" />            
+                <Form.Control value={Email} onChange={e => setEmail(e.target.value) } type="email" placeholder="Enter email" />            
               </Form.Group>                  
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control value={Password} onChange={onPasswordHandler} type="password" placeholder="Password" />
+                <Form.Control value={Password} onChange={e => setPassword(e.target.value)} type="password" placeholder="Password" />
               </Form.Group>                   
               <Button  onClick={onSubmitHandler} variant="primary" type="submit">
               Submit
