@@ -1,6 +1,6 @@
 import React from 'react'
-import UserForm from '../../components/UserForm'
-import {Container, Header, LogoImage} from "./styles"
+import RegisterForm from '../../components/RegisterForm'
+import {Container, Header, LogoImage, LinkContainer } from "./styles"
 
 function RegisterPage() {
     return (
@@ -9,7 +9,11 @@ function RegisterPage() {
                 <Header>
                     <LogoImage />
                 </Header>
-                <UserForm />       
+                <RegisterForm />                    
+                <LinkContainer >                    
+                    이미 회원이신가요?&nbsp;
+                    <a href="/login">로그인 하러가기</a>
+                </LinkContainer >
             </Container>     
         </>
       )
