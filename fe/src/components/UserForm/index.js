@@ -7,7 +7,7 @@ import { useMutation } from "react-query";
 
 function UserForm() {
 
-    const navigate = useNavigate()
+  const navigate = useNavigate()
   
   const [Email, setEmail] = useState("")
   const [Name, setName] = useState("")
@@ -26,8 +26,6 @@ function UserForm() {
       }      
     }
   );
-  
-
 
   const onSubmitHandler = (e) => {
       e.preventDefault();
