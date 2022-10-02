@@ -1,8 +1,17 @@
 import React from 'react'
+import {Header} from "./styles"
+import Workspace from '../../components/Workspace'
+import Profile from "../../components/Profile/"
+
 
 function LandingPage() {
   return (
-    <div>LandingPage</div>
+    <>
+      <Header>
+        <Profile />                 
+      </Header>
+      <Workspace />      
+    </>
   )
 }
 
