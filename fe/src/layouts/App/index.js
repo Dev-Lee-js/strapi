@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Workspace() {
+function index() {
   return (
     <div>index</div>
   )
 }
 
-export default Workspace
+export default index

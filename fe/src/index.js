@@ -14,13 +14,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   
     <React.StrictMode>  
-      <StyledEngineProvider injectFirst>
-        <Provider store={store}>
+      <StyledEngineProvider injectFirst>        
         <QueryClientProvider client={queryClient}>
           <ReactQueryDevtools initialIsOpen={true} />
+          <Provider store={store}>
             <App />  
-        </QueryClientProvider> 
-        </Provider>
+          </Provider>
+        </QueryClientProvider>         
       </StyledEngineProvider>
     </React.StrictMode>
   

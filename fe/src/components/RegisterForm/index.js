@@ -19,7 +19,7 @@ function UserForm() {
 
   const mutation = useMutation(
     'addUser',
-    (body) => axios.post('https://1337-devleejs-strapi-lg9aejq4v0y.ws-us67.gitpod.io/auth/local/register',body),
+    (body) => axios.post('https://1337-devleejs-strapi-lg9aejq4v0y.ws-us71.gitpod.io/auth/local/register',body),
     {      
       onError: (error, variables, context) => {
         console.log('onError', context);

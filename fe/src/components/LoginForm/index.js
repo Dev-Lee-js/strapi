@@ -18,7 +18,7 @@ function LoginForm() {
   
     const mutation = useMutation(
         'login',
-        (body) => axios.post('https://1337-devleejs-strapi-lg9aejq4v0y.ws-us67.gitpod.io/auth/local',body),
+        (body) => axios.post('https://1337-devleejs-strapi-lg9aejq4v0y.ws-us71.gitpod.io/auth/local',body),
         {      
           onError: (error, variables, context) => {
             <Alert severity="error">
@@ -26,8 +26,10 @@ function LoginForm() {
             This is an error alert — <strong>check it out!</strong>
           </Alert>
           },
-          onSuccess: (data, variables, context) => {
-            navigate("/");
+          onSuccess: (data, variables, context) => {            
+            localStorage.setItem('username', data.data.user.username);     
+            localStorage.setItem('jwt', data.data.jwt);         
+            navigate("/")            
           }      
         }
       )

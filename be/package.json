@@ -10,7 +10,6 @@
     "strapi": "strapi",
     "dev": "concurrently \"npm run develop\" \"npm run start --prefix ../fe\""
   },
-  "devDependencies": {},
   "dependencies": {
     "concurrently": "^7.4.0",
     "knex": "0.21.18",
@@ -18,11 +17,9 @@
     "strapi": "3.6.8",
     "strapi-admin": "3.6.8",
     "strapi-connector-bookshelf": "3.6.8",
-    "strapi-connector-mongoose": "^3.6.10",
     "strapi-plugin-content-manager": "3.6.8",
     "strapi-plugin-content-type-builder": "3.6.8",
-    "strapi-plugin-email": "3.6.8",
-    "strapi-plugin-graphql": "3.6.8",
+    "strapi-plugin-email": "3.6.8",    
     "strapi-plugin-i18n": "3.6.8",
     "strapi-plugin-upload": "3.6.8",
     "strapi-plugin-users-permissions": "3.6.8",
@@ -32,7 +29,7 @@
     "name": "A Strapi developer"
   },
   "strapi": {
-    "uuid": "bf350640-d951-4658-8872-7f78c4e00447",
+    "uuid": "3fe9b528-8abe-46ec-a933-f8d0ec73225d",
     "template": "https://github.com/strapi/strapi-template-corporate"
   },
   "engines": {

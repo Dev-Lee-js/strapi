@@ -1,9 +1,9 @@
 import {configureStore} from "@reduxjs/toolkit";
-import boilerplateSlice from "./boilerplateSlice";
+import workspaceSlice from "./workspaceSlice";
 
 const store = configureStore({
   reducer:{
-    boilerplate:boilerplateSlice.reducer
+    workspace:workspaceSlice.reducer
   }
 })
 

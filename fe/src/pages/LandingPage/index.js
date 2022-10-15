@@ -1,7 +1,7 @@
 import React from 'react'
 import {Header} from "./styles"
-import Workspace from '../../components/Workspace'
 import Profile from "../../components/Profile/"
+import CreactWorkspace from '../../components/CreateWorkspace'
 
 
 function LandingPage() {
@@ -10,7 +10,7 @@ function LandingPage() {
       <Header>
         <Profile />                 
       </Header>
-      <Workspace />      
+      <CreactWorkspace />      
     </>
   )
 }
