@@ -9,6 +9,7 @@ import TextField from '@mui/material/TextField';
 import {WorkPlus, Close} from "./styles"
 import {Btn} from "./styles"
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 import Axios from "axios"
 
 const ModalStyle = styled(Modal)`
@@ -45,7 +46,7 @@ function CreactWorkspace() {
   useEffect(() => {
     const token = localStorage.getItem('jwt')
     const name = localStorage.getItem('username')
-    Axios.get(`https://1337-devleejs-strapi-lg9aejq4v0y.ws-us71.gitpod.io/workspaces?author.username=${name}`,{
+    Axios.get(`https://1337-devleejs-strapi-paz1eyu3a7x.ws-us77.gitpod.io/workspaces?author.username=${name}`,{
       headers: {
         Authorization: `Bearer ${token}`
       }        
@@ -70,25 +71,40 @@ function CreactWorkspace() {
   const onSubmitHandler = (e) => {
     e.preventDefault();       
     const token = localStorage.getItem('jwt')
-    Axios.post('https://1337-devleejs-strapi-lg9aejq4v0y.ws-us71.gitpod.io/Workspaces',
+    Axios.post('https://1337-devleejs-strapi-paz1eyu3a7x.ws-us77.gitpod.io/Workspaces',
       {URL:WorkURL,
       Name:WorkName},{
         headers: {
           Authorization: `Bearer ${token}`
         }        
-        }).then(function (response) {
-        console.log(response);
+        }).then(function () {
+          const name = localStorage.getItem('username')
+          Axios.get(`https://1337-devleejs-strapi-paz1eyu3a7x.ws-us74.gitpod.io/workspaces?author.username=${name}`,{
+          headers: {
+            Authorization: `Bearer ${token}`
+          }        
+          }).
+          then(function (response) {      
+            setWorkSpace(response.data);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
       })
       .catch(function (error) {
         console.log(error);
       });   
   }
-
+  
   return (
     
     <Wrapper>        
       {WorkSpace.map((item) => {
-       return <WorkBtn key={item.id} href={item.URL}><button>{item.Name}</button></WorkBtn>          
+       return <WorkBtn key={item.id}>
+               <button>
+                  <Link to={`/workspace/${item.URL}/channel/일반`}>ssss</Link>                
+                </button>
+              </WorkBtn>          
         })}      
       <div>
         <WorkPlus onClick={handleOpen}>+</WorkPlus>

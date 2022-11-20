@@ -18,7 +18,7 @@ function LoginForm() {
   
     const mutation = useMutation(
         'login',
-        (body) => axios.post('https://1337-devleejs-strapi-lg9aejq4v0y.ws-us71.gitpod.io/auth/local',body),
+        (body) => axios.post('https://1337-devleejs-strapi-paz1eyu3a7x.ws-us77.gitpod.io/auth/local',body),
         {      
           onError: (error, variables, context) => {
             <Alert severity="error">
