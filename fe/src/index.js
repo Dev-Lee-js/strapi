@@ -7,6 +7,7 @@ import { ReactQueryDevtools } from "react-query/devtools";
 import { StyledEngineProvider } from '@mui/styled-engine';
 import App from './App';
 
+
 const queryClient = new QueryClient();
 
 
@@ -17,8 +18,8 @@ root.render(
       <StyledEngineProvider injectFirst>        
         <QueryClientProvider client={queryClient}>
           <ReactQueryDevtools initialIsOpen={true} />
-          <Provider store={store}>
-            <App />  
+          <Provider store={store}>            
+            <App />              
           </Provider>
         </QueryClientProvider>         
       </StyledEngineProvider>
