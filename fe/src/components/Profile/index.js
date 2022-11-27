@@ -7,12 +7,6 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-
-
-
-
-
-
 function Profile() {
 
   const navigate = useNavigate()

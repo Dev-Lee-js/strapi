@@ -2,7 +2,8 @@ import React from 'react'
 import {Header} from "./styles"
 import Profile from "../../components/Profile/"
 import CreactWorkspace from '../../components/CreateWorkspace'
-import { Link, Outlet } from 'react-router-dom';
+import Channel from "../../components/ChannelList"
+import ChattingRoom from "../../components/ChattingRoom"
 
 function LandingPage() {
   return (
@@ -11,8 +12,9 @@ function LandingPage() {
       <Header>
         <Profile />                 
       </Header>      
-      <CreactWorkspace />     
-      <Outlet />
+      <CreactWorkspace /> 
+      <Channel />   
+      <ChattingRoom />       
     </>
   )
 }

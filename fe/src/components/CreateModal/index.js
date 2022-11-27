@@ -9,7 +9,6 @@ import {WorkPlus, Close} from "./styles"
 import {Btn} from "./styles"
 import styled from 'styled-components';
 import {useDispatch} from "react-redux"
-import { create } from '../../workspaceSlice';
 import Axios from "axios"
 
 const ModalStyle = styled(Modal)`

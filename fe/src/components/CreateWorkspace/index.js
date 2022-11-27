@@ -81,7 +81,7 @@ function CreactWorkspace() {
         }        
         }).then(function () {
           const name = localStorage.getItem('username')
-          Axios.get(`https://1337-devleejs-strapi-paz1eyu3a7x.ws-us74.gitpod.io/workspaces?author.username=${name}`,{
+          Axios.get(`https://1337-devleejs-strapi-paz1eyu3a7x.ws-us77.gitpod.io/workspaces?author.username=${name}`,{
           headers: {
             Authorization: `Bearer ${token}`
           }        
@@ -100,11 +100,16 @@ function CreactWorkspace() {
   
   return (
     
-    <Wrapper>        
+    <Wrapper>    
+      <WorkBtn>
+        <button>
+          <Link to={`/workspace/Sleact/channel/일반`}>S</Link>                
+        </button>
+      </WorkBtn>      
       {WorkSpace.map((item) => {
        return <WorkBtn key={item.id}>
                <button>
-                  <Link to={`/workspace/${item.URL}/channel/일반`}>ssss</Link>                
+                  <Link to={`/workspace/${item.URL}/channel/일반`}>{item.Name.slice(0, 1).toUpperCase()}</Link>                
                 </button>
               </WorkBtn>          
         })}      
