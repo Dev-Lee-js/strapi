@@ -6,6 +6,7 @@ export const ProfileMenu = styled.div`
     background-color: #f8f8f8;
     position: absolute;
     top: 48px;
+    z-index:999;
     right: 0px;
     border-radius: 10px;
     box-shadow: -3px 5px 5px 0px #eaeaea;

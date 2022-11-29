@@ -6,6 +6,7 @@ import Channel from "../../components/ChannelList"
 import ChattingRoom from "../../components/ChattingRoom"
 
 function LandingPage() {
+
   return (
     <>    
 
@@ -13,8 +14,8 @@ function LandingPage() {
         <Profile />                 
       </Header>      
       <CreactWorkspace /> 
-      <Channel />   
-      <ChattingRoom />       
+      <Channel />         
+      <ChattingRoom />
     </>
   )
 }

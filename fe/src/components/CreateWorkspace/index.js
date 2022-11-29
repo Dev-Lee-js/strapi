@@ -11,6 +11,8 @@ import {Btn} from "./styles"
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
 import Axios from "axios"
+import { useNavigate } from 'react-router-dom';
+
 
 
 
@@ -41,6 +43,8 @@ const style = {
 
 function CreactWorkspace() { 
 
+  const navigate = useNavigate()
+
   
   const [WorkSpace, setWorkSpace] = useState([]);
 
@@ -58,6 +62,7 @@ function CreactWorkspace() {
       })
       .catch(function (error) {
         console.log(error);
+        navigate("/login")
       });
       
   }, []);
@@ -90,7 +95,7 @@ function CreactWorkspace() {
             setWorkSpace(response.data);
           })
           .catch(function (error) {
-            console.log(error);
+            console.log(error);            
           });
       })
       .catch(function (error) {
@@ -100,12 +105,7 @@ function CreactWorkspace() {
   
   return (
     
-    <Wrapper>    
-      <WorkBtn>
-        <button>
-          <Link to={`/workspace/Sleact/channel/일반`}>S</Link>                
-        </button>
-      </WorkBtn>      
+    <Wrapper>                
       {WorkSpace.map((item) => {
        return <WorkBtn key={item.id}>
                <button>

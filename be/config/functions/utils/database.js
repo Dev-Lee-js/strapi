@@ -1,7 +1,7 @@
 
 async function findUser(username, room) {
     try {
-        const userExists = await strapi.services.users.find({ username, room });
+        const userExists = await strapi.services.socket.find({ username, room });
         return userExists;
     } catch(err) {
         console.log("error while fetching", err);
@@ -10,7 +10,7 @@ async function findUser(username, room) {
 
 async function createUser({ username, room, status, socketId }) {
     try {
-        const user = await strapi.services.users.create({
+        const user = await strapi.services.socket.create({
             username,
             room,
             status: status,    

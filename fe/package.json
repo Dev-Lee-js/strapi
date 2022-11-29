@@ -21,6 +21,7 @@
     "redux": "^4.2.0",
     "strapi-connector-mongoose": "^3.6.10",
     "styled-components": "^5.3.5",
+    "socket.io-client": "^3.0.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

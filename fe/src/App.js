@@ -8,10 +8,21 @@ import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ChattingRoom from "./components/ChattingRoom"
+import { createGlobalStyle } from 'styled-components';
 
+const GlobalStyle = createGlobalStyle`
+  * {
+    text-decoration: none;
+  }
+  a{
+    color: black; text-decoration: none;   
+  }
+`;
 
 function App() {
   return (
+    <>
+    <GlobalStyle />
     <BrowserRouter>      
       <Routes>              
         <Route path="/workspace/:workspace/*" element={<LandingPage />}>          
@@ -22,6 +33,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />}></Route>
       </Routes>
   </BrowserRouter>
+  </>
   );
 }
 

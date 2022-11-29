@@ -18,8 +18,8 @@ export const Wrapper = styled.div`
 
 export const Channels = styled.h2`
     height: 36px;
-    line-height: 36px;    
-    margin: 0px;
+    line-height: 36px;
+    margin-left: 85px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -27,15 +27,13 @@ export const Channels = styled.h2`
     color: #bcabbc;
     width: 100%;
     text-align: left;
-    padding-left: 85px;
 `;
 
-export const ChannelName = styled.a`
-    text-decoration: none;
+export const ChannelName = styled.a`    
     width: 100%;
     color: white;
     text-align: left;
-    padding-left: 85px;
+    margin-left: 85px;
 `;
 
 export const WorkspaceName = styled.button`

@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sockets",
+  "info": {
+    "name": "socket"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "username": {
+      "type": "text",
+      "required": true,
+      "unique": true
+    },
+    "room": {
+      "type": "text",
+      "required": true
+    },
+    "status": {
+      "type": "text",
+      "required": true
+    },
+    "socketId": {
+      "type": "text",
+      "required": true,
+      "unique": true
+    }
+  }
+}

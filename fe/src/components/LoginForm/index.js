@@ -9,6 +9,7 @@ import Container from '@mui/material/Container';
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import {Btn} from "./styles"
+import { socket } from '../../config/web-sockets';
 
 function LoginForm() {
     const navigate = useNavigate()
@@ -28,11 +29,23 @@ function LoginForm() {
           },
           onSuccess: (data, variables, context) => {            
             localStorage.setItem('username', data.data.user.username);     
-            localStorage.setItem('jwt', data.data.jwt);         
+            localStorage.setItem('jwt', data.data.jwt);        
+            const username =  data.data.user.username
+            const room = "sleact"
+            socket.emit('join', { username, room }, (error) => {
+              if(error) {                
+                  alert(error);
+              } else {
+                  socket.on('welcome', (data) => {
+                      
+                  });
+              }
+          });   
             navigate("/")            
           }      
         }
       )
+      
   
       const onSubmitHandler = (e) => {
         e.preventDefault();    
@@ -40,7 +53,8 @@ function LoginForm() {
         if(Email === "" || Password === ""){
           alert("필수정보를 입력해 주세요.")
         } else {
-        mutation.mutate({identifier:Email, password:Password});
+        mutation.mutate({identifier:Email, password:Password});         
+                
         }
     }
   

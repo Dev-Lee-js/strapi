@@ -43,7 +43,7 @@ export const Wrapper = styled.div`
     height: 931px;
 `;
 
-export const WorkBtn = styled.a`
+export const WorkBtn = styled.div`
     button{
     display: inline-block;
     width: 40px;
