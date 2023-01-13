@@ -34,7 +34,7 @@ async function chattingSave(message, room, username) {
 }
 async function userExists(id) {
     try {
-        const user = strapi.services.users.findOne({ id: id });
+        const user = strapi.services.socket.findOne({ id: id });
         return user;
     } catch(err) {
         console.log("Error occured when fetching user", err);
@@ -42,7 +42,7 @@ async function userExists(id) {
 }
 async function getUsersInRoom(room) {
     try {
-        const usersInRoom = await strapi.services.users.find({ room })
+        const usersInRoom = await strapi.services.socket.find({ room })
         return usersInRoom;
     } catch(err) {
         console.log("Error.Try again!", err);
@@ -58,7 +58,8 @@ async function getUsersText(room) {
 }
 async function deleteUser(socketId) {
     try {
-        const user = await strapi.services.users.delete({ socketId: socketId });
+        console.log(socketId)
+        const user = await strapi.services.socket.delete({ socketId: socketId });
         return user;
     } catch(err) {
         console.log("Error while deleting the User", err);

@@ -1,42 +1,48 @@
 import styled from 'styled-components';
+import ForwardIcon from '@mui/icons-material/Forward';
 
+export const ChatBox = styled.div`
+    flex: 1 1 0%;
+    input{
+        height: 90px;
+        width:99%
+    }
+`;
 
-export const ChattingBox = styled.div`
-  float:right
-
-`
-export const ChattingHeader = styled.div`
+export const Header = styled.div`
     height: 24px;
-    display: flex;
-    width: 100%;
+    display: flex;    
     --saf-0: rgba(var(--sk_foreground_low, 29, 28, 29), 0.13);
     box-shadow: 0 1px 0 var(--saf-0);
-    padding: 13px 0px 20px 0px;
+    padding: 20px 16px 20px 20px;
     font-weight: bold;
     -webkit-box-align: center;
     align-items: center;
-    float:right
-`
-export const ChattingWrapper = styled.div`
-    width: 1020px;
-    height: 945px;    
-    position: absolute;
-    left: 328px;
-    top: 48px;
-`
+`;
 
-export const ChattingMessage = styled.div`
-    width: 1020px;
-    height: 118px;
-    position: absolute;    
-    bottom: 0;  
-`
+export const MessageBox = styled.div`
+    border: 1px solid #000;
+    position: relative;
+    height: 90px;
+    background: rgb(248,248,248);    
+    width: 93%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    input{
+        height: 45px;
+        width: 100%;
+        border: 0;
+        padding: 0;
+    }
+    button{ 
+        width: 70px;
+        height: 46px;
+        position: absolute;
+        right: 0;
+        background: #3f0e40;
+    }
+`;
 
-export const ChattingForm = styled.form`
-    color: rgb(29, 28, 29);
-    font-size: 15px;
-    width: 100%;
-    border-radius: 4px;
-    border: 1px solid rgb(29, 28, 29);
-    height: 100%;
+export const ChatIcon = styled(ForwardIcon)`
+    color:white
 `

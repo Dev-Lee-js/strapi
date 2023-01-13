@@ -239,20 +239,15 @@ module.exports = async () => {
 module.exports = () => {
   var io = require('socket.io')(strapi.server, {
       cors: {
-        origin: "https://3000-devleejs-strapi-paz1eyu3a7x.ws-us77.gitpod.io",
+        origin: "https://3000-devleejs-strapi-paz1eyu3a7x.ws-us82.gitpod.io",
         methods: ["GET", "POST"],
         allowedHeaders: ["my-custom-header"],
         credentials: true
       }
   });
   io.on('connection', function(socket) {
-      socket.on('join', async({ username, room }, callback) => {        
-          try {
-              const userExists = await findUser(username);
-
-              if(userExists.length > 0) {
-                  callback(`User ${username} already exists in room no${room}. Please select a different name or room`);
-              } else {
+      socket.on('join', async({ username, room }, callback) => {          
+          try {             
                   const user = await createUser({
                       username: username,
                       room: room,
@@ -261,25 +256,23 @@ module.exports = () => {
                   });
 
                   if(user) {
-                      socket.join(user.room);    
-                      console.log("good")
-                      // const usersText = await getUsersText(user.room)                                             
-                      // socket.emit('welcome', {
-                      //     user: 'bot',
-                      //     text: `${user.username}, Welcome to room ${user.room}.`,
-                      //     userData: user
-                      // });                       
-                      // io.to(user.room).emit('roomInfo', {
-                      //     room: user.room,
-                      //     users: await getUsersInRoom(user.room)
-                      // });
-                      // io.to(user.room).emit('preChatList', {                                                                                      
-                      //     usersText                                                
-                      // });    
+                      socket.join(user.room);                          
+                      const usersText = await getUsersText(user.room) 
+                      console.log(usersText)                        
+                      socket.emit('welcome', {                                            
+                        userData: user
+                     });                                                                                      
+                      io.to(user.room).emit('roomInfo', {
+                          room: user.room,
+                          users: await getUsersInRoom(user.room)
+                      });
+                      io.to(user.room).emit('preChatList', {                     
+                          usersText                                                
+                      });    
                   } else {
                       callback(`user could not be created. Try again!`)
                   }
-              }
+              
               callback();
           } catch(err) {
               console.log("Err occured, Try again!", err);

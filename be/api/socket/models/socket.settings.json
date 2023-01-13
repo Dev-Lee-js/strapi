@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "sockets",
   "info": {
-    "name": "socket"
+    "name": "socket",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -14,7 +15,7 @@
     "username": {
       "type": "text",
       "required": true,
-      "unique": true
+      "unique": false
     },
     "room": {
       "type": "text",
@@ -27,7 +28,7 @@
     "socketId": {
       "type": "text",
       "required": true,
-      "unique": true
+      "unique": false
     }
   }
 }

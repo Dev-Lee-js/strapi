@@ -9,3 +9,8 @@ export const Header = styled.header`
     text-align: center;
 `
 
+export const Container = styled.div`
+    display: flex;
+    flex: 1 1 0%;
+    height: 100%;
+`

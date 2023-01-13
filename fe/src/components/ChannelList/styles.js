@@ -2,20 +2,6 @@ import styled from 'styled-components';
 
 
 
-export const Wrapper = styled.div`
-    width: 260px;
-    display: inline-flex;
-    flex-direction: column;
-    -webkit-box-align: center;
-    align-items: center;
-    background: rgb(63, 14, 64);
-    border-top: 1px solid rgb(82, 38, 83);
-    border-right: 1px solid rgb(82, 38, 83);
-    vertical-align: top;
-    text-align: center;    
-    height: 931px;
-`;
-
 export const Channels = styled.h2`
     height: 36px;
     line-height: 36px;

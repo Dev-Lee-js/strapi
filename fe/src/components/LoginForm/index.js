@@ -11,7 +11,8 @@ import AlertTitle from '@mui/material/AlertTitle';
 import {Btn} from "./styles"
 import { socket } from '../../config/web-sockets';
 
-function LoginForm() {
+function LoginForm(props) {
+  
     const navigate = useNavigate()
   
     const [Email, setEmail] = useState("")    
@@ -19,7 +20,7 @@ function LoginForm() {
   
     const mutation = useMutation(
         'login',
-        (body) => axios.post('https://1337-devleejs-strapi-paz1eyu3a7x.ws-us77.gitpod.io/auth/local',body),
+        (body) => axios.post('https://1337-devleejs-strapi-paz1eyu3a7x.ws-us82.gitpod.io/auth/local',body),
         {      
           onError: (error, variables, context) => {
             <Alert severity="error">
@@ -31,14 +32,14 @@ function LoginForm() {
             localStorage.setItem('username', data.data.user.username);     
             localStorage.setItem('jwt', data.data.jwt);        
             const username =  data.data.user.username
-            const room = "sleact"
+            const room = "Sleact"
             socket.emit('join', { username, room }, (error) => {
               if(error) {                
                   alert(error);
               } else {
-                  socket.on('welcome', (data) => {
-                      
-                  });
+                socket.on('welcome', (data) => {                  
+                  props.props.onJoinSuccess(data);
+              });
               }
           });   
             navigate("/")            
@@ -58,7 +59,10 @@ function LoginForm() {
         }
     }
   
-    
+    socket.on('welcome', (data) => {
+      
+      props.props.onJoinSuccess(data);
+  });
   
     return (    
       <Container component="main" maxWidth="xs">      

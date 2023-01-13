@@ -39,8 +39,7 @@ export const Wrapper = styled.div`
     border-right: 1px solid rgb(82, 38, 83);
     vertical-align: top;
     text-align: center;
-    padding: 15px 0px 0px;
-    height: 931px;
+    padding: 15px 0px 0px;    
 `;
 
 export const WorkBtn = styled.div`

@@ -51,7 +51,7 @@ function CreateModal() {
     const onSubmitHandler = (e) => {
       e.preventDefault();    
       
-      Axios.post('https://1337-devleejs-strapi-lg9aejq4v0y.ws-us70.gitpod.io/Workspaces',
+      Axios.post('https://1337-devleejs-strapi-lg9aejq4v0y.ws-us82.gitpod.io/Workspaces',
       {URL:WorkURL,
       Name:WorkName}).then(function (response) {
         console.log(response);
