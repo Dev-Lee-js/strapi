@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { socket } from '../../config/web-sockets';
 import Messages from '../../components/Messages';
-
+import { useSelector } from "react-redux";
 
 import {
   ChatBox,  
@@ -10,13 +10,11 @@ import {
   Header
 } from './styles';
 
-function ChattingRoom(props) {
-        
-    
-    const {username, room, joinData } = props.props;
+function ChattingRoom(){ 
+     
+    const {username, room, joinData } = useSelector((state) => state.slact.value);
     const [messages, setMessages] = useState([]);    
-    const [message, setMessage] = useState("");
-    const [users, setUsers] = useState([]);
+    const [message, setMessage] = useState("");    
     const [pre, setPre] = useState()    
           
     useEffect(() => {        
@@ -26,14 +24,10 @@ function ChattingRoom(props) {
               });
             socket.on('message', (message, error) => {                                
                 setMessages(msgs => [ ...msgs, message ]);                
-            });
-            socket.on("roomInfo", (users) => {
-              setUsers(users);
-            });            
-        } 
-        else {            
-        }
-     }, [joinData])
+            });   
+                     
+        }         
+     }, [joinData])     
      const handleChange = (e) => {
       setMessage(e.target.value);
     };

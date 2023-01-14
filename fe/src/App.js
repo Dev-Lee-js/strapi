@@ -10,7 +10,8 @@ import RegisterPage from './pages/RegisterPage';
 import ChattingRoom from "./components/ChattingRoom"
 import { createGlobalStyle } from 'styled-components';
 import React,{useState} from "react"
-
+import {useDispatch} from "react-redux"
+import slactSlice from "./slactSlice";
 const GlobalStyle = createGlobalStyle`
   * {
     text-decoration: none;    
@@ -23,18 +24,21 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
 
+  const dispatch = useDispatch();
+
     const [username, setUsername] = useState('');
     const [room, setRoom] = useState('');
     const [joinData, setJoinData] = useState({});
 
     function onJoinSuccess(data) {
       
-        setJoinData(data);
+        setJoinData(data);        
         setUsername(data.userData.username);
         setRoom(data.userData.room);        
     }
 
-    
+    dispatch(slactSlice.actions.joinData({joinData,room,username}))
+
   return (
     
     <>
@@ -42,10 +46,7 @@ function App() {
     <BrowserRouter>      
       <Routes>              
         <Route path="/workspace/:workspace/*" 
-        element={<LandingPage username={username} 
-                              room={room} 
-                              joinData={joinData}
-        />}>          
+        element={<LandingPage/>}>          
             <Route path="channel/일반" element={<ChattingRoom />}></Route>
         </Route>
         <Route path="/" element={<Navigate replace to="/workspace/Sleact/channel/일반"/>}></Route>

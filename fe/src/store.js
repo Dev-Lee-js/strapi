@@ -1,9 +1,9 @@
 import {configureStore} from "@reduxjs/toolkit";
-import workspaceSlice from "./workspaceSlice";
+import slactSlice from "./slactSlice";
 
 const store = configureStore({
   reducer:{
-    workspace:workspaceSlice.reducer
+    slact:slactSlice.reducer
   }
 })
 

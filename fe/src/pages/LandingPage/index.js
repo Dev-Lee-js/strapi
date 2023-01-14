@@ -6,7 +6,7 @@ import SideBar from "../../components/SideBar"
 import ChattingRoom from "../../components/ChattingRoom"
 import {Container} from "./styles"
 
-function LandingPage(props) { 
+function LandingPage() { 
 
   return (
     <>    
@@ -15,8 +15,8 @@ function LandingPage(props) {
       </Header>  
       <Container>
         <CreactWorkspace /> 
-        <SideBar props={props} />         
-        <ChattingRoom props={props}/>
+        <SideBar />         
+        <ChattingRoom/>
       </Container>    
     </>
   )

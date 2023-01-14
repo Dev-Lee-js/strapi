@@ -3,11 +3,11 @@ import {Wrapper} from "./styles"
 import ChannelList from "../ChannelList"
 import DirectMessage from "../DirectMessages"
 
-function SideBar(props) {
+function SideBar() {
   return (
     <Wrapper>
         <ChannelList />
-        <DirectMessage props={props} />
+        <DirectMessage />
     </Wrapper>
   )
 }
