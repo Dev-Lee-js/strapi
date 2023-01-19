@@ -2,7 +2,7 @@ import React from 'react'
 import LoginForm from '../../components/LoginForm'
 import {Container, Header, LogoImage, LinkContainer } from "./styles"
 
-function LoginPage(props) {  
+function LoginPage() {  
 
   return (
     <>      
@@ -10,7 +10,7 @@ function LoginPage(props) {
             <Header>
                 <LogoImage />
             </Header>
-            <LoginForm props={props} />                    
+            <LoginForm  />                    
             <LinkContainer >                    
             아직 회원이 아니신가요?&nbsp;
                 <a href="/register">회원가입 하러가기</a>

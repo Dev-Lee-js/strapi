@@ -10,11 +10,11 @@ function DirectMessage() {
   const [users, setUsers] = useState([]);  
 
   useEffect(() => {        
-    if( Object.keys(joinData).length > 0) {                    
+    
         socket.on("roomInfo", (users) => {
           setUsers(users);
         });            
-    } 
+    
  }, [joinData])     
 
  console.log(users.users)

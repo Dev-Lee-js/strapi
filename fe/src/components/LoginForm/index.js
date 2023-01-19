@@ -10,17 +10,19 @@ import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import {Btn} from "./styles"
 import { socket } from '../../config/web-sockets';
-
-function LoginForm(props) {
+import {useDispatch} from "react-redux"
+import slactSlice from "../../slactSlice";
+import usernameSlice from "../../usernameSlice";
+function LoginForm() {
   
     const navigate = useNavigate()
-  
+    const dispatch = useDispatch()
     const [Email, setEmail] = useState("")    
     const [Password, setPassword] = useState("")    
   
     const mutation = useMutation(
         'login',
-        (body) => axios.post('https://1337-devleejs-strapi-paz1eyu3a7x.ws-us82.gitpod.io/auth/local',body),
+        (body) => axios.post('https://1337-devleejs-strapi-paz1eyu3a7x.ws-us83.gitpod.io/auth/local',body),
         {      
           onError: (error, variables, context) => {
             <Alert severity="error">
@@ -36,10 +38,6 @@ function LoginForm(props) {
             socket.emit('join', { username, room }, (error) => {
               if(error) {                
                   alert(error);
-              } else {
-                socket.on('welcome', (data) => {                  
-                  props.props.onJoinSuccess(data);
-              });
               }
           });   
             navigate("/")            
@@ -61,7 +59,8 @@ function LoginForm(props) {
   
     socket.on('welcome', (data) => {
       
-      props.props.onJoinSuccess(data);
+      dispatch(slactSlice.actions.joinData(data))
+      dispatch(usernameSlice.actions.joinData(data))
   });
   
     return (    

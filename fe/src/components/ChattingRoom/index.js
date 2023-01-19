@@ -12,13 +12,14 @@ import {
 
 function ChattingRoom(){ 
      
-    const {username, room, joinData } = useSelector((state) => state.slact.value);
+    const joinData = useSelector((state) => state.slact.value);
+    const username = useSelector((state) => state.username.value);
     const [messages, setMessages] = useState([]);    
     const [message, setMessage] = useState("");    
     const [pre, setPre] = useState()    
           
     useEffect(() => {        
-        if( Object.keys(joinData).length > 0) {            
+                  
             socket.on("preChatList", (message, error) => {                    
                 setPre(message)
               });
@@ -26,7 +27,7 @@ function ChattingRoom(){
                 setMessages(msgs => [ ...msgs, message ]);                
             });   
                      
-        }         
+        
      }, [joinData])     
      const handleChange = (e) => {
       setMessage(e.target.value);

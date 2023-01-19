@@ -239,7 +239,7 @@ module.exports = async () => {
 module.exports = () => {
   var io = require('socket.io')(strapi.server, {
       cors: {
-        origin: "https://3000-devleejs-strapi-paz1eyu3a7x.ws-us82.gitpod.io",
+        origin: "https://3000-devleejs-strapi-paz1eyu3a7x.ws-us83.gitpod.io",
         methods: ["GET", "POST"],
         allowedHeaders: ["my-custom-header"],
         credentials: true

@@ -24,21 +24,6 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
 
-  const dispatch = useDispatch();
-
-    const [username, setUsername] = useState('');
-    const [room, setRoom] = useState('');
-    const [joinData, setJoinData] = useState({});
-
-    function onJoinSuccess(data) {
-      
-        setJoinData(data);        
-        setUsername(data.userData.username);
-        setRoom(data.userData.room);        
-    }
-
-    dispatch(slactSlice.actions.joinData({joinData,room,username}))
-
   return (
     
     <>
@@ -50,7 +35,7 @@ function App() {
             <Route path="channel/일반" element={<ChattingRoom />}></Route>
         </Route>
         <Route path="/" element={<Navigate replace to="/workspace/Sleact/channel/일반"/>}></Route>
-        <Route path="/login" element={<LoginPage onJoinSuccess={onJoinSuccess} />}></Route>
+        <Route path="/login" element={<LoginPage />}></Route>
         <Route path="/register" element={<RegisterPage />}></Route>
       </Routes>
   </BrowserRouter>

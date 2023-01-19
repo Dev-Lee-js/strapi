@@ -50,7 +50,7 @@ function CreactWorkspace() {
   useEffect(() => {
     const token = localStorage.getItem('jwt')
     const name = localStorage.getItem('username')
-    Axios.get(`https://1337-devleejs-strapi-paz1eyu3a7x.ws-us82.gitpod.io/workspaces?author.username=${name}`,{
+    Axios.get(`https://1337-devleejs-strapi-paz1eyu3a7x.ws-us83.gitpod.io/workspaces?author.username=${name}`,{
       headers: {
         Authorization: `Bearer ${token}`
       }        
@@ -76,7 +76,7 @@ function CreactWorkspace() {
   const onSubmitHandler = (e) => {
     e.preventDefault();       
     const token = localStorage.getItem('jwt')
-    Axios.post('https://1337-devleejs-strapi-paz1eyu3a7x.ws-us82.gitpod.io/Workspaces',
+    Axios.post('https://1337-devleejs-strapi-paz1eyu3a7x.ws-us83.gitpod.io/Workspaces',
       {URL:WorkURL,
       Name:WorkName},{
         headers: {
@@ -84,7 +84,7 @@ function CreactWorkspace() {
         }        
         }).then(function () {
           const name = localStorage.getItem('username')
-          Axios.get(`https://1337-devleejs-strapi-paz1eyu3a7x.ws-us82.gitpod.io/workspaces?author.username=${name}`,{
+          Axios.get(`https://1337-devleejs-strapi-paz1eyu3a7x.ws-us83.gitpod.io/workspaces?author.username=${name}`,{
           headers: {
             Authorization: `Bearer ${token}`
           }        
